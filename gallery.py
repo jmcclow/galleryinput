@@ -49,6 +49,7 @@ if __name__ == '__main__':
     url_to_login = config.get('source', 'login')
     username = config.get('source', 'user')
     photo_url = config.get('source', 'photo_url')
+    suffix = config.get('source', 'suffix')
     password = getpass() 
     igid = raw_input("Please enter igid: ") 
     browser = webdriver.Firefox()
@@ -66,7 +67,7 @@ if __name__ == '__main__':
         photo_id = int(element.get_attribute('id'))
     except:
         print "Oh oh that was bad..."
-    image_url = str(photo_url + str(photo_id) + "_102_73_1.jpg") 
+    image_url = str(photo_url + str(photo_id) + suffix) 
     print "Getting " + image_url 
     while ( 1 ):
         urllib.urlretrieve(image_url, str(photo_id) + '.jpg')
