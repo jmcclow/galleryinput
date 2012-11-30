@@ -86,23 +86,22 @@ if __name__ == '__main__':
             if photo_id < end_id:
                 photo_to_id[photo_id] = i
                 photo_id += 1
-
-        for ident in photo_to_id:
-            print photo_to_id[ident]
-            repl = re.sub('IMG_', '', str(photo_to_id[ident]))
-            photo_num = re.sub('.jpg', '', repl) 
-            if name_to_num[photo_num]:
-                try: 
-                    e = browser.find_element_by_name("imageDescription[" + str(ident) + "]")
-                    e.send_keys(name_to_num[photo_num])
-                except:
-                    print "Sorry couldn't find that element " + str(ident)
-#        try:
-#            e = browser.find_element_by_value("Spara")
-#            e.submit()
-#        except:
-#            print "Couldn't find submit button"
-#            # Do phash on this image to what we have
-#            photo_id += 1
-#            image_url = "http://images.sthlmsfinest.com/imageGalleryImages/scaled/" + str(photo_id) + "_102_73_1.jpg" 
+    print name_to_num
+    for ident in photo_to_id:
+        repl = re.sub('IMG_', '', str(photo_to_id[ident]))
+        photo_num = re.sub('.jpg', '', repl) 
+        if name_to_num[photo_num]:
+            try: 
+                e = browser.find_element_by_name("imageDescription[" + str(ident) + "]")
+                e.send_keys(name_to_num[photo_num])
+            except:
+                print "Sorry couldn't find that element " + str(ident)
+        try:
+            e = browser.find_element_by_value("Spara")
+            e.submit()
+        except:
+            print "Couldn't find submit button"
+            # Do phash on this image to what we have
+            photo_id += 1
+            image_url = "http://images.sthlmsfinest.com/imageGalleryImages/scaled/" + str(photo_id) + "_102_73_1.jpg" 
     browser.close()
