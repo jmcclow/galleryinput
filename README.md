@@ -1,3 +1,16 @@
+Some prereqs:
+Run the following:
+$ pip install -U selenium
+$ wget http://www.phash.org/releases/pHash-0.9.5.tar.gz
+$ tar xvfz pHash-0.9.5.tar.gz
+$ cd pHash-0.9.5
+$ ./configure
+$ make
+$ sudo make install
+
+Pretty straight forward
+===================================
+Included things
 File names and purposes
 gallery.py - main script to be used to run the script
     - Requires PLIB 
